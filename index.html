@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom-manupalation</title>
+    <title>Student Information Manager</title>
+    <meta name="author" content="Ganga Saini">
+    <meta name="description" content="A simple student information management form built using HTML, CSS, and JavaScript.">
+    <meta name="theme-color" content="#2563eb">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
@@ -11,37 +15,37 @@
     <section class="container">
         <div class="wrapper">
               <h2>Add Student Information</h2>
-            <form method="" action="">
+            <form method="Post"  id="student-form">
             <div class="student-data">
                 <div class="name flex-h">
                     <label>Student Name:</label>
                     <div class="inputWrapper">
-                    <input type="text" id="name" name="add-name" value="" placeholder="name">
+                    <input type="text" id="name" name="addName" value="" placeholder="name">
                     <span class="errordesign"></span>
                     </div>
                 </div>
                 <div class="Studentid flex-h">
                     <label>Student Id:</label>
                      <div class="inputWrapper">
-                    <input type="text"  id="student-id" name="add-name" value="" placeholder="Student Id">
+                    <input type="text"  id="student-id" name="Studentid" value="" placeholder="Student Id">
                     <span class="errordesign"></span>
                     </div>
                 </div>
                 <div class="Studentclass flex-h">
-                    <label>Student Class:</label>
+                    <label>Email:</label>
                      <div class="inputWrapper">
-                    <input type="text" id="studentClass" name="add-name" value="" placeholder="Student Class">
+                    <input type="text" id="studentClass" name="Studentemail" value="" placeholder="Enter the Email">
                     <span class="errordesign"></span>
                     </div>
                 </div>
                 <div class="Studentclass flex-h">
-                    <label>Roll No:</label>
+                    <label>Contact No:</label>
                      <div class="inputWrapper">
-                    <input type="text" id="studentrollNo"  name="add-name" value="" placeholder="Roll No.">
+                    <input type="tel" id="studentrollNo"  maxlength="10" pattern="[0-9]{10}" inputmode="numeric" name="contactnumber" value="" placeholder="Enter Your Number">
                     <span class="errordesign"></span>
                     </div>
                 </div>
-                <button action="ShowStudentData" id="button-id">Add Detail</button>
+                <button type="submit"  id="button-id">Add Detail</button>
             </div>
             </form>
         </div>
