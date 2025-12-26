@@ -137,9 +137,9 @@ function toggleTable(data) {
 3. Start adding student data 🎉
 
 
+Git Hub link :  https://github.com/gangarsaini/Student-data
 
-
-
+Git Repository : git clone https://github.com/gangarsaini/Student-data.git
 
 
 
