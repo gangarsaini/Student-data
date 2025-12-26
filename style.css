@@ -6,15 +6,10 @@
 
 
 body{
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)) , url(./img/school.jpg);
-    width:100%;
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #1f2933, #111827);
     font-family: "Lato", sans-serif;
-    color: #fff;
-    min-height:100vh;
+    color: #111;
+    min-height: 100vh;
 }
 
 .flex-h{
@@ -33,22 +28,48 @@ body{
     flex-direction: row;
 }
 
-.wrapper {
+.wrapper{
     width: 470px;
     margin-right: 30px;
 }
 .complete-wrapper{
 width:calc(100% - 500px);
-
 }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background: #f3f4f6;
+    font-weight: 600;
+    color: #111;
+    padding:8px;
+}
+td {
+    padding:8px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111;
+}
+
+tr:hover {
+    background-color: #f9fafb;
+}
+
+.wrapper,.complete-wrapper{
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
 #show-data td{
     white-space: nowrap;
 }
- .show-data-in{
+.show-data-in{
     display: block;
-    border-radius:10px;
-    /* overflow: auto; */
-    /* max-height:310px;  */
+    border-radius:8px;
 }
 
 
@@ -60,51 +81,55 @@ width:calc(100% - 500px);
 }
 
 .flex-h input{
-   
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.2s ease, box-shadow 0.2s ease; 
     width:100%;
-    padding: 10px;
-    border: 1px solid #80808054;
-    outline: none;
-    border-radius: 4px;
-    text-transform: uppercase;
+}
+
+.flex-h input:focus{
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
 }
 
 #button-id{
     width: 100%;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 6px;
     border: none;
-    width: calc(100% - 130px);
     display: flex;
     text-align: center;
     justify-content: center;
-   
-    margin-left: 130px;
     cursor: pointer;
-    background-color: #000;
+    background-color:#0d40b0;
+    font-weight:400;
     font-size:16px;
     transition: .5s ease-in-out;
     color: #fff;
+
 }
 
 #button-id:hover{
-    background-color:#fff;
-    color: #000;
+   background-color: #2563eb;
+    
+     
 }
-h2{
-    text-align: center;
-    margin-bottom:20px;
+h2 {
+    color: #111;
+    font-size: 20px;
+    margin-bottom: 16px;
 }
 th,td{
-    /* //width:150px; */
-    text-align: left;
-    padding-right:20px;
+    
+     text-align: left;
+    padding-right:10px;
 }
 
-
-
-
-
+#name{
+    text-transform: capitalize;
+}
 
 .designbtn.col{
  background-color:red;
@@ -128,13 +153,25 @@ th,td{
     position: absolute;
     BOTTOM: -15PX;
     FONT-SIZE: 12px;
-    color: red;
+    color: #dc2626;
     left: 2px;
 }
 
 .table-has-data{
     display:none;
 }
+
+.show-data-in::-webkit-scrollbar {
+    width: 6px;
+}
+
+.show-data-in::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 6px;
+}
+
+
+
   @media (max-width:880px){
         .container{
             flex-direction: column;
@@ -174,6 +211,15 @@ th,td{
         .show-data-in{
             overflow-x: auto;
         }
+        .show-data-in::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .show-data-in::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 6px;
+        }
+
         .show-data-in table{
             width:100%;
         }

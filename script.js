@@ -7,7 +7,7 @@ const studentinfo = document.querySelector('.complete-wrapper');
 const tabledata = document.querySelector("#show-data");
 const showdataTable = document.querySelector('.show-data-in');
 const getForm = document.querySelector('#student-form');
-//action="javascript:void(0)"
+
 // localsotrage function
 function getStudent(){
 const readData = JSON.parse(localStorage.getItem('StudentData')) || [];
@@ -37,6 +37,7 @@ function autoScrollbar(){
       showdataTable.style.maxHeight = "310px";
       if(showdataTable.scrollHeight>showdataTable.clientHeight){
         showdataTable.style.overflowY  = "auto";
+       
         }
     else{
         showdataTable.style.overflowY  = "hidden"
@@ -72,8 +73,10 @@ function tableCreation(student,index){
      const createTd4 = document.createElement('td');
     createTd4.innerHTML = student.phoneNumber;
     const createTd5 = document.createElement('td');
-    createTd5.classList.add('designbtn','col')
-    createTd5.innerHTML = "Delete";
+    const button = document.createElement('button')
+    button.classList.add('designbtn','col');
+    button.innerHTML = "Delete";
+    createTd5.appendChild(button);
     createTd5.addEventListener('click', function(){
         const students = getStudent();
         students.splice(index,1);
@@ -82,9 +85,13 @@ function tableCreation(student,index){
         toggleTable(students);
        
     });
+    const creategap = document.createElement('td');
+    creategap.innerHTML = ''
     const createTd6 = document.createElement('td');
-    createTd6.classList.add('designbtn')
-    createTd6.innerHTML = "Edit";
+    const editbtn = document.createElement('button');
+    editbtn.innerHTML = "Edit";
+    editbtn.classList.add('designbtn')
+    createTd6.appendChild(editbtn);
     createTd6.addEventListener('click', function(){
         editIndex = index;
         Stuname.value = student.name;
@@ -95,12 +102,7 @@ function tableCreation(student,index){
         
 
     })
-    createTr.appendChild(createTd1);
-    createTr.appendChild(createTd2);
-    createTr.appendChild(createTd3);
-    createTr.appendChild(createTd4);
-    createTr.appendChild(createTd5);
-    createTr.appendChild(createTd6);
+    createTr.append(createTd1,createTd2,createTd3,createTd4,createTd5,creategap,createTd6)
     tabledata.appendChild(createTr);
     
 }
@@ -123,11 +125,27 @@ clearError(Stuname);
 clearError(StundentId);
 clearError(StundentClass);
 clearError(StudentRoll);
-if(Stuname.value == "" || 
-StundentId.value == "" ||
-StundentClass.value == "" ||
-StudentRoll.value == "")return;
-   if(!/^[A-Za-z ]+$/.test(Stuname.value)){
+
+let hasError = false;
+if(Stuname.value === ""){
+    ShowError(Stuname, "Name is required");
+    hasError = true;
+}
+if(StundentId.value === ""){
+    ShowError(StundentId, "Student Id is required");
+    hasError = true;
+}
+if(StundentClass.value === ""){
+    ShowError(StundentClass, "Email is required");
+    hasError = true;
+}
+if(StudentRoll.value === ""){
+    ShowError(StudentRoll, "Phone Number is required");
+    hasError = true;
+}
+
+if (hasError) return;
+if(!/^[A-Za-z ]+$/.test(Stuname.value)){
         ShowError(Stuname, "Please Enter the letters only");
         return;
     }
@@ -145,17 +163,17 @@ StudentRoll.value == "")return;
     }
 
     let Studentdetail = {
-    name:Stuname.value,
-    id:StundentId.value,
-    studentmail:StundentClass.value,
-    phoneNumber:StudentRoll.value
+    name:Stuname.value.trim(),
+    id:StundentId.value.trim(),
+    studentmail:StundentClass.value.trim(),
+    phoneNumber:StudentRoll.value.trim()
     }
     let students = getStudent();
   if(editIndex !== null){
    students[editIndex] = Studentdetail;
    btn.innerHTML = "Add Data"
     editIndex = null
-
+    toggleTable(students);
   }
    else{
      students.push(Studentdetail);
