@@ -35,8 +35,7 @@ without using any external libraries or frameworks.
 ├── index.html
 ├── style.css
 ├── script.js
-├── img/
-│   └── school.jpg
+
 └── README.md
 ```
 
@@ -50,8 +49,8 @@ without using any external libraries or frameworks.
 
   * Student Name
   * Student ID
-  * Student Class
-  * Roll Number
+  * Student email
+  * phone Number
 * Click **"Add Detail"**
 * Data is validated and stored in `localStorage`
 * Table becomes visible when data exists
@@ -137,9 +136,9 @@ function toggleTable(data) {
 3. Start adding student data 🎉
 
 
-Git Hub link :  https://github.com/gangarsaini/Student-data
+## Git Hub link :  https://github.com/gangarsaini/Student-data
 
-Git Repository : git clone https://github.com/gangarsaini/Student-data.git
+## Git Repository : git clone https://github.com/gangarsaini/Student-data.git
 
 
 
