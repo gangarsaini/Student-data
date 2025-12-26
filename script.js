@@ -1,7 +1,7 @@
 const Stuname = document.querySelector('#name');
 const StundentId = document.querySelector('#student-id');
-const StundentClass = document.querySelector('#studentClass');
-const StudentRoll = document.querySelector('#studentrollNo');
+const StundentClass = document.querySelector('#StudentEmail');
+const StudentRoll = document.querySelector('#studentNumber');
 const btn = document.querySelector('#button-id');
 const studentinfo = document.querySelector('.complete-wrapper');
 const tabledata = document.querySelector("#show-data");
@@ -68,9 +68,9 @@ function tableCreation(student,index){
     const createTd2 = document.createElement('td');
     createTd2.innerHTML = student.id;
      const createTd3 = document.createElement('td');
-    createTd3.innerHTML = student.studentClass;
+    createTd3.innerHTML = student.studentmail;
      const createTd4 = document.createElement('td');
-    createTd4.innerHTML = student.rollNumber;
+    createTd4.innerHTML = student.phoneNumber;
     const createTd5 = document.createElement('td');
     createTd5.classList.add('designbtn','col')
     createTd5.innerHTML = "Delete";
@@ -89,8 +89,8 @@ function tableCreation(student,index){
         editIndex = index;
         Stuname.value = student.name;
         StundentId.value = student.id;
-        StundentClass.value = student.studentClass;
-        StudentRoll.value = student.rollNumber;
+        StundentClass.value = student.studentmail;
+        StudentRoll.value = student.phoneNumber;
         btn.innerHTML = 'Update data';
         
 
@@ -128,8 +128,8 @@ StundentId.value == "" ||
 StundentClass.value == "" ||
 StudentRoll.value == "")return;
    if(!/^[A-Za-z ]+$/.test(Stuname.value)){
-    ShowError(Stuname, "Please Enter the letters only");
-    return;
+        ShowError(Stuname, "Please Enter the letters only");
+        return;
     }
     if(!/^[0-9]+$/.test(StundentId.value)){
         ShowError(StundentId, "Please Enter the Numbers only");
@@ -147,8 +147,8 @@ StudentRoll.value == "")return;
     let Studentdetail = {
     name:Stuname.value,
     id:StundentId.value,
-    studentClass:StundentClass.value,
-    rollNumber:StudentRoll.value
+    studentmail:StundentClass.value,
+    phoneNumber:StudentRoll.value
     }
     let students = getStudent();
   if(editIndex !== null){
@@ -176,6 +176,6 @@ toggleTable(hasdata);
 
 getForm.addEventListener('submit', function(e){
 e.preventDefault();
-ShowStudentData()
+ShowStudentData();
 })
 
